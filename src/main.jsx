@@ -11,6 +11,7 @@ import ProductDetails from "./pages/ProductDetails";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { LanguageProvider } from "./context/LanguageContext";
+import ProtectedRoute from "./components/common/ProtectedRoute";
 
 const router = createBrowserRouter([
   {

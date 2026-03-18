@@ -1,5 +1,5 @@
-const { default: useAuthStore } = "@/store/useAuthStore";
-const { Navigate } = "react-router-dom";
+import useAuthStore from "@/store/useAuthStore";
+import { Navigate } from "react-router-dom";
 
 const ProtectedRoute = ({ children }) => {
   const token = useAuthStore((state) => state.token);
@@ -10,3 +10,5 @@ const ProtectedRoute = ({ children }) => {
 
   return children;
 };
+
+export default ProtectedRoute;
