@@ -1,10 +1,56 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router";
+import MainLayout from "./layout/mainLayout";
+import Cart from "./pages/Cart";
+import Login from "./pages/Login";
+import ProductsList from "./pages/ProductsList";
+import NotFound404 from "./pages/NotFound404";
+import ProductDetails from "./pages/ProductDetails";
+import { Provider } from "react-redux";
+import { store } from "./store/store";
+import { LanguageProvider } from "./context/LanguageContext";
 
-createRoot(document.getElementById('root')).render(
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <MainLayout />,
+    children: [
+      {
+        index: true,
+        element: <ProductsList />,
+      },
+      {
+        path: "product/:id",
+        element: <ProductDetails />,
+      },
+      {
+        path: "cart",
+        element: (
+          <ProtectedRoute>
+            <Cart />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+    ],
+  },
+  {
+    path: "*",
+    element: <NotFound404 />,
+  },
+]);
+
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    <Provider store={store}>
+      <LanguageProvider>
+        <RouterProvider router={router} />
+      </LanguageProvider>
+    </Provider>
   </StrictMode>,
-)
+);

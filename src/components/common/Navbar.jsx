@@ -68,6 +68,9 @@ const Navbar = () => {
             )}
           </Link>
         </div>
+        <Link to="/login" className="text-xl font-black tracking-tighter">
+          Login
+        </Link>
       </div>
     </nav>
   );
