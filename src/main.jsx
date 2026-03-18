@@ -1,7 +1,8 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider } from "react-router";
+// 1. استبدال createBrowserRouter بـ createHashRouter
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./layout/mainLayout";
 import Cart from "./pages/Cart";
 import Login from "./pages/Login";
@@ -13,7 +14,8 @@ import { store } from "./store/store";
 import { LanguageProvider } from "./context/LanguageContext";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 
-const router = createBrowserRouter([
+// 2. استخدام createHashRouter لضمان عمل الروابط على GitHub Pages
+const router = createHashRouter([
   {
     path: "/",
     element: <MainLayout />,
