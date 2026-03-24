@@ -6,10 +6,9 @@ import { Outlet } from "react-router";
 const MainLayout = () => {
   return (
     <>
-      {" "}
       <Navbar />
       <Outlet />
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };
