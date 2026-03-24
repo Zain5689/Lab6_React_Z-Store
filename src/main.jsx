@@ -1,7 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-// 1. استبدال createBrowserRouter بـ createHashRouter
 import { createHashRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./layout/mainLayout";
 import Cart from "./pages/Cart";
@@ -14,7 +13,6 @@ import { store } from "./store/store";
 import { LanguageProvider } from "./context/LanguageContext";
 import ProtectedRoute from "./components/common/ProtectedRoute";
 
-// 2. استخدام createHashRouter لضمان عمل الروابط على GitHub Pages
 const router = createHashRouter([
   {
     path: "/",

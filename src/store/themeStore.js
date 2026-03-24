@@ -1,8 +1,13 @@
 import { create } from "zustand";
 
 const useThemeStore = create((set) => ({
-  isDarkMode: false,
-  toggleTheme: () => set((state) => ({ isDarkMode: !state.isDarkMode })),
+  isDarkMode: localStorage.getItem("theme") === "dark",
+  toggleTheme: () =>
+    set((state) => {
+      const newMode = !state.isDarkMode;
+      localStorage.setItem("theme", newMode ? "dark" : "light");
+      return { isDarkMode: newMode };
+    }),
 }));
 
 export default useThemeStore;

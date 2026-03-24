@@ -28,9 +28,6 @@ const Navbar = () => {
 
       <div className="flex items-center gap-6">
         <div className="flex items-center gap-2">
-          <span className="text-sm font-bold hidden sm:block">
-            {lang === "en" ? "Welcome" : "مرحباً"}
-          </span>
           <Button
             variant="ghost"
             size="sm"
